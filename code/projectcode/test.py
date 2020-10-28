@@ -3,3 +3,7 @@ def func(x):
 
 def funcdouble(x):
     return x * 2
+
+
+def funccalculate(x):
+    return funcdouble(x)

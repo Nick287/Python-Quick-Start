@@ -11,7 +11,7 @@
 3. For beginners of Python, one problem that has wasted me a lot of time is the references to different py files, because Python doesn't have namespace like Java or C#, so to know how to references to methods or classes are very important.
    1. Here I recommend the simplest way its add the __ init __.py file with each file directory that means to create a package base on the .py file in this folder. 
    2. some referance [Modules](https://docs.python.org/3/tutorial/modules.html) and [How to create a Python Package with __ init __.py](https://timothybramlett.com/How_to_create_a_Python_Package_with___init__py.html)
-   ![Image of init](img\Pythoninit.png)
+   ![Image of init](img/Pythoninit.png)
 
 4. Python unit test (pytest)
    1. Unit testing is a key part of software development, and the first time I did it in Python is with Pytest, which was very easy to use, so the next i will talk about Pytest from my experence.
@@ -20,7 +20,7 @@
          -  ```pip install -U pytest```
       2.  Verify the installation
           -  ```pytest --version```
-      ![pytest --version](img\pytest_v.PNG)
+      ![pytest --version](img/pytest_v.PNG)
       3. pytest official document
          - [Full pytest documentation](https://docs.pytest.org/en/latest/contents.html)
   
@@ -30,7 +30,7 @@
       3. In a test class, you can include one or more functions beginning with Test_
       4. When the Pytest command is executed, test functions that match the above constraints are automatically searched from the current directory and subdirectories for execution.
    4. there is an simple code you can download it and run this pytest and the file structure seems like this：
-   - ![pytest_structure.PNG](img\pytest_structure.PNG)
+   - ![pytest_structure.PNG](img/pytest_structure.PNG)
    - The test code is very simple which two functions addition and a doubling named **test.py** 
    ```python
          def func(x):
@@ -55,11 +55,32 @@
    python -m pytest
    ```
     - Because I made a mistake in writing double as results so this is going to result in one failure and one pass
- ![testresult.png](img\testresult.png)
+ ![testresult.png](img/testresult.png)
 
      - if you can correct my mistake that change the double function result from 7 to 8, then run Pytest again and you will get two passes.
-      - ![testresult2.png](img\testresult2.png)
+      - ![testresult2.png](img/testresult2.png)
+ 
+   5. Another important concept you need to know its **mock** some times When you write unit test, you don’t really care whether the API call runs or not. 
+   I just want to know when I develop is that my code works as expected when API returns correct data.
+   If I can provide fake data without calling the API, then I don’t have to sit there are wait for the test to complete. This is where mocks come in.
+      1. [unittest.mock official document](https://docs.python.org/3/library/unittest.mock.html)
 
+      2. there I do a mock function **funccalculate** in this function i have call the function **funcdouble** In fact, I just care about the execution of the function and don't care about the return value so I can do this way:
+   
+      3. **funccalculate**
+      ```python
+         def funccalculate(x):
+            return funcdouble(x)
+      ```
+      4. **test_calculate**
+      ```python
+         def test_calculate(mocker):
+            num = 5
+            mock_move_blob_file = mocker.patch('projectcode.test.funcdouble')
+            mock_move_blob_file.return_value = 10
+            projectcode.test.funccalculate(num)
+            assert mock_move_blob_file.called
+      ```
 
 behave test
 1. behave 的作用
