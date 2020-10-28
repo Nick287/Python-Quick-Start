@@ -81,6 +81,8 @@
             projectcode.test.funccalculate(num)
             assert mock_move_blob_file.called
       ```
+      5. run pytest again you will get 3 pass
+      - ![testresult3.png](img/testresult3.png)
 
 behave test
 1. behave 的作用
