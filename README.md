@@ -13,7 +13,7 @@
    2. some referance [Modules](https://docs.python.org/3/tutorial/modules.html) and [How to create a Python Package with __ init __.py](https://timothybramlett.com/How_to_create_a_Python_Package_with___init__py.html)
    ![Image of init](img/Pythoninit.png)
 
-4. Python unit test (pytest)
+4. ### Python unit test (pytest)
    1. Unit testing is a key part of software development, and the first time I did it in Python is with Pytest, which was very easy to use, so the next i will talk about Pytest from my experence.
    2. pytest env
       1. install pytest
@@ -84,7 +84,27 @@
       5. run pytest again you will get 3 pass
       - ![testresult3.png](img/testresult3.png)
 
-behave test
-1. behave 的作用
-2. behave 的环境安装
-3. behave 框架推荐
+## Behavior Driven Development
+Behavior-driven development (or BDD) is an agile software development technique that encourages collaboration between developers, QA and non-technical or business participants in a software project.
+1. the advantage of behave
+   1. In my understanding is that a way for non-technical people to easy understand and even to help develop tests by using Gherkin Language. it also makes integration testing clearer and easier to management.
+   2. behave test is scenario based which means behave is not in unit tests level it could be leverage unit tests or beyond unit tests and test multiple modules in series.
+   3. For me in the last project that is public cloud architecture based project so I was to use Behave test between different cloud services of the stability in several Behave scenarios
+2. Installation of behave environment
+   1. It is recommended that you install directly by using PIP
+    ```python
+      # Execute the following command to install behave with pip:
+      pip install behave
+
+      # To update an already installed behave version, use:
+      pip install -U behave
+      ```
+   2. Check your installation just input command 'behave --version' it should be print out behave version number in my case its 1.2.6
+   ```python
+   behave --version
+   ```
+   ![behave1.png](img/behave1.png)
+3. behave implementation
+   1. you need create an behave *__.feature__* file and this file use to define test scenarios and you can create it and under the feature folder and you could use this feature folder save more feature file and each file for different test scenarios.
+   2. Then you should create an steps folder for save script file this file name should same as feature file name but the the extension name is .py  YES its seems like __Code-behind__ model but the *.feature file is basd on Gherkin Language.
+   3. For steps folder you can also put some common/utility files into it
