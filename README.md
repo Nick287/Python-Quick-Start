@@ -107,4 +107,4 @@ Behavior-driven development (or BDD) is an agile software development technique 
 3. behave implementation
    1. you need create an behave *__.feature__* file and this file use to define test scenarios and you can create it and under the feature folder and you could use this feature folder save more feature file and each file for different test scenarios.
    2. Then you should create an steps folder for save script file this file name should same as feature file name but the the extension name is .py  YES its seems like __Code-behind__ model but the *.feature file is basd on Gherkin Language.
-   3. For steps folder you can also put some common/utility files into it
+   3. For steps folder you can also put some common/utility files into it or Or create a separate folder for me I have creat a folder name API for some common function (testing class)
