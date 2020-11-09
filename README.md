@@ -11,7 +11,7 @@
 3. For beginners of Python, one problem that has wasted me a lot of time is the references to different py files, because Python doesn't have namespace like Java or C#, so to know how to references to methods or classes are very important.
    1. Here I recommend the simplest way its add the __ init __.py file with each file directory that means to create a package base on the .py file in this folder. 
    2. some referance [Modules](https://docs.python.org/3/tutorial/modules.html) and [How to create a Python Package with __ init __.py](https://timothybramlett.com/How_to_create_a_Python_Package_with___init__py.html)
-   ![Image of init](img/Pythoninit.png)
+      - ![Image of init](img/Pythoninit.png)
 
 4. ### Python unit test (pytest)
    1. Unit testing is a key part of software development, and the first time I did it in Python is with Pytest, which was very easy to use, so the next i will talk about Pytest from my experence.
@@ -108,23 +108,23 @@ Behavior-driven development (or BDD) is an agile software development technique 
    1. you need create an behave *__.feature__* file and this file use to define test scenarios and you can create it and under the feature folder and you could use this feature folder save more feature file and each file for different test scenarios.
    2. Then you should create an steps folder for save script file this file name should same as feature file name but the the extension name is .py (the implementation code for the dealer feature) YES its seems like __Code-behind__ model but the *.feature file is basd on Gherkin Language.
    3. For steps folder you can also put some common/utility files into it or create a separate folder for me I have creat a folder name API for some common function and testing class
-   ![behave2.png](img/behave2.png)
+   - ![behave2.png](img/behave2.png)
    4. In my case I am going to test __*CommonClient*__ class under the __*api*__ folder and in this class have 2 functions *ReturnDoubleNumber* and *ReturnNumberPlusOne* so So I tested it with two scenarios you can see that in tes_behave.feature file and the test code in tes_behave.py file
-   ![behave3.png](img/behave3.png)
+   -  ![behave3.png](img/behave3.png)
       1. as I mentioned behave test scenario base on Gherkin Language so the test scenario seems like this
-      ```
-      Feature: TestAPIClass
+         ```
+         Feature: TestAPIClass
 
-      Scenario: testing for double number function in API class
-         Given Randomly generate a source number and set into global variable
-         When Call a double method and store the result in 1 seconds
-         Then Check the double method results is correct or not
+         Scenario: testing for double number function in API class
+            Given Randomly generate a source number and set into global variable
+            When Call a double method and store the result in 1 seconds
+            Then Check the double method results is correct or not
 
-      Scenario: testing for plus one number function in API class
-         Given Randomly generate a source number and set into global variable
-         When Call a plus one method and store the result in 1 seconds
-         Then Check the plus one results is correct or not
-      ```
+         Scenario: testing for plus one number function in API class
+            Given Randomly generate a source number and set into global variable
+            When Call a plus one method and store the result in 1 seconds
+            Then Check the plus one results is correct or not
+         ```
       2. as you can see fist line describes the feature. In a large system, you may have many features. 
       3. next, I am add two test. these test case is super simple — the key word of Behave uses to define a test is "Scenario"
       4. for the "Scenario" or say test case, we need to understand the three phases of a basic Behave test: "Given", "When", and "Then". 
@@ -170,36 +170,36 @@ Behavior-driven development (or BDD) is an agile software development technique 
             ```
    5. Back to the directory 'code\behave\features' and make sure your behave installation is successful by input command 'behave --version' it should be print out behave version number in my case its 1.2.6
    6. then input command 'behave' that is run behave test and you should see the output like this: 
-   ```
-   C:\***\Python-Quick-Start\code\behave\features>behave --version
-   behave 1.2.6
+      ```
+      C:\***\Python-Quick-Start\code\behave\features>behave --version
+      behave 1.2.6
 
-   C:\***\Python-Quick-Start\code\behave\features>behave
+      C:\***\Python-Quick-Start\code\behave\features>behave
 
-   @dev @APItest
-   Feature: TestAPIClass # tes_behave.feature:2
-   ```
-   ![behave4.png](img/behave4.png)
+      @dev @APItest
+      Feature: TestAPIClass # tes_behave.feature:2
+      ```
+   - ![behave4.png](img/behave4.png)
 
    7. we have 1 feature and in this feature we have 2 scenarios so there result is 1 feature and 2 scenarios passed. then for each scenario we have 3 steps so in total passed 6 steps
    8. run behave test we just in put the  __behave__ command and there I would like to introduce a useful parameters its *--tags* that is use It is used to classify features. for example we have a development and a production environment and we have different features defined for two different environments. the tags an help us play behave for target env. such as __behave --tags=@dev__ in this command its only 2 Features will be executed that with @dev taged
-   ```
-   @dev
-   Feature: TestAPIClass
-   ...
-   @dev
-   Feature: TestFucnClass
+      ```
+      @dev
+      Feature: TestAPIClass
+      ...
+      @dev
+      Feature: TestFucnClass
 
-   @production 
-   Feature: TestAPIClass
-   ...
-   @production 
-   Feature: TestFucnClass
+      @production 
+      Feature: TestAPIClass
+      ...
+      @production 
+      Feature: TestFucnClass
 
 
-   C:\***\Python-Quick-Start\code\behave\features>behave --tags=@dev
+      C:\***\Python-Quick-Start\code\behave\features>behave --tags=@dev
 
-   ```
+      ```
 
 ### Conclusion
 This tutorial help you walked through setting up a new env with the python pytest and Behave library. 
